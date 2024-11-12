@@ -12,13 +12,13 @@ import { FormsModule } from '@angular/forms'
 export class SidePanelComponent {
     jobsService = inject(JobsService)
     jobPosts = this.jobsService.jobPosts;
-    selectedID = this.jobsService.selectedID;
+    selectedJob = this.jobsService.selectedJob;
     highlightsForShow = this.jobsService.highlightsForShow;
     isLoading = this.jobsService.isLoading;
     pastedDescription = '';
 
     getJob() {
-      return this.jobPosts().find(job => job.jobId === this.selectedID());
+      return this.jobPosts().find(job => job.jobId === this.selectedJob()?.jobId);
     }
 
     generateHighlights() {

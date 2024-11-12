@@ -12,7 +12,7 @@ import { JobPost, JobsService } from '../jobs.service';
 export class JobListComponent implements OnInit{
   private jobService = inject(JobsService)
   jobPosts = this.jobService.jobPosts
-  selectedID = this.jobService.selectedID
+  selectedJob = this.jobService.selectedJob
   searchTerm = this.jobService.searchTerm
   maxApplicants = this.jobService.maxApplicants
   
@@ -29,11 +29,11 @@ export class JobListComponent implements OnInit{
     // this.jobService.getAll();
   }
 
-  selectJob(id: string) {
-    if (id === this.selectedID()){
-      this.selectedID.set('');
+  selectJob(job: JobPost) {
+    if (job.jobId === this.selectedJob()?.jobId){
+      this.selectedJob.set(null);
     } else {
-      this.selectedID.set(id);
+      this.selectedJob.set(job);
     }
   }
 

@@ -1,6 +1,6 @@
 <!-- <div class="side-panel" [class.selected]="selectedID() !== ''"> -->
 <div class="side-panel">
-    @if (selectedID() === '') {
+    @if (selectedJob() == null) {
         <p style="border-bottom: 1px solid #ddd; padding-bottom: 13px; text-align: center;">Generate Highlights Here</p>
         <textarea [(ngModel)]="pastedDescription" placeholder="Paste job description here..."></textarea>
         <button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>

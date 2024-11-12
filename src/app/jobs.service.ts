@@ -26,7 +26,7 @@ export class JobsService {
   jobPosts = signal<JobPost[]>([]);
   highlightsForShow = signal<String>('');
   http = inject(HttpClient);
-  selectedID = signal<string>('');
+  selectedJob = signal<JobPost|null>(null);
   searchTerm = signal<string>('');
   maxApplicants = signal<number>(200);
   isLoading = signal<boolean>(false);

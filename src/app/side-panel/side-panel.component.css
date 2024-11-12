@@ -4,7 +4,7 @@
     border-radius: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    height: 92%;
+    height: 100%;
   }
 
 .side-panel.selected {
@@ -40,6 +40,7 @@
     border: none;
     border-radius: 0px;
     cursor: pointer;
+    border-radius: 2px;
   }
 
   .side-panel button:disabled {
@@ -48,7 +49,7 @@
   }
   
   .side-panel button:hover {
-    background-color: #0056b3;
+    background-color: #1269415e;
   }
   
   .side-panel ul {
