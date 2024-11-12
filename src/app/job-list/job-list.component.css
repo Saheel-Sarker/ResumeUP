@@ -1,0 +1,71 @@
+
+/* More specific styles for the job-list component */
+
+
+.job-card {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.job-card:hover {
+  background-color: #f9f9f9;
+}
+
+.job-card.selected {
+  background-color: #569ec062;
+  border-color: #91d5ff;
+}
+
+.job-card p {
+  margin: 3px 0;
+}
+
+.job-card p strong {
+  display: inline-block;
+  max-width: calc(100% - 40px); /* Adjust based on button size and padding */
+  word-wrap: break-word; /* Break long words if necessary */
+  overflow-wrap: break-word;
+}
+
+.job-card button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-card button::before,
+.job-card button::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: #692121; /* Change to desired color */
+  border-radius: 1px;
+}
+
+/* Rotate the lines to form an "X" */
+.job-card button::before {
+  transform: rotate(45deg);
+}
+
+.job-card button::after {
+  transform: rotate(-45deg);
+}
+
+.job-card button:hover {
+  background-color: #af4040;
+  border-radius: 50%;
+}

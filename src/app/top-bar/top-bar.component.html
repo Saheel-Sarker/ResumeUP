@@ -1,0 +1,20 @@
+<div class="top-bar">
+    <input
+      type="text"
+      placeholder="Search job titles..."
+      [(ngModel)]="searchTerm"
+      class="search-bar"
+    />
+  
+    <label for="applicantSlider" class="slider-label">Applicants:</label>
+    <input
+      type="range"
+      id="applicantSlider"
+      [(ngModel)]="maxApplicants"
+      min="0"
+      max="200"
+      class="applicant-slider"
+    />
+    <span class="applicant-count"> &lt; {{ maxApplicants() }} Applicants</span>
+  </div>
+  
