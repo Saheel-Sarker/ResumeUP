@@ -1,23 +1,24 @@
 <!-- <div class="side-panel" [class.selected]="selectedID() !== ''"> -->
 <div class="side-panel">
     @if (selectedID() === '') {
-        <p>Paste job description here to receive tailored highlights:</p>
+        <p style="border-bottom: 1px solid #ddd; padding-bottom: 13px; text-align: center;">Generate Highlights Here</p>
         <textarea [(ngModel)]="pastedDescription" placeholder="Paste job description here..."></textarea>
         <button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>
         @if (!isLoading()) {
             @if (highlightsForShow() !== '') {
-                <p>Generated Highlights:</p>
+                <p style="margin-top: 15px;">Generated Highlights:</p>
             }
             @for (highlight of highlightsForShow(); track $index) {
-                <li>{{highlight}}</li>
+                <li style="font-size: 14px;">{{highlight}}</li>
             }
         } @else {
             <div class="spinner">Loading...</div>
         }
     } @else {
-        <p>Highlights for Selected Job:</p>
+        <p style="border-bottom: 1px solid #ddd; padding-bottom: 13px;">Highlights for Selected Job</p>
         @for (highlight of getJob()?.highlights; track $index) {
-            <li>{{highlight}}</li>
+            <li style="font-size: 14px;">{{highlight}}</li>
         }
+
     }
 </div>

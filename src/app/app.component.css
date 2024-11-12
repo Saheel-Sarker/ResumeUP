@@ -9,6 +9,7 @@
   /* Layout for main content, with job list and side panel */
   .main-content {
     display: flex;
+    flex-grow: 1;
     gap: 0px;
     width: 100%;
     box-sizing: border-box;
@@ -17,13 +18,18 @@
   }
 
   .app-job-list, .app-side-panel {
-    flex: 1;
-    max-width: 600px;
-    min-width: 400px;
+    /* max-width: 600px;
+    min-width: 400px; */
     box-sizing: border-box;
     overflow-y: auto;
-
-    max-height: 90vh; /* Keep side panel from taking more than 80% of viewport height */
-    overflow-y: auto; /* Allows scrolling within the side panel if content is long */
   }
   
+  .app-job-list {
+    max-height: 90vh;
+    flex: 2;
+  }
+
+  .app-side-panel {
+    flex: 3;
+    height: 100%; /* Ensures it fills the remaining height */
+  }

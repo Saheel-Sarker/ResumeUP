@@ -4,6 +4,7 @@
     border-radius: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    height: 92%;
   }
 
 .side-panel.selected {
@@ -23,7 +24,7 @@
   
   .side-panel textarea {
     width: 100%;
-    height: 500px;
+    height: 400px;
     padding: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
