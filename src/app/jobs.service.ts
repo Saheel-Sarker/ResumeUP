@@ -10,13 +10,16 @@ const apiUrl = 'https://07n5quah72.execute-api.us-east-2.amazonaws.com';
 
 export interface JobPost {
   title: string;
-  company: string;
+  companyName: string;
   location: string;
   link: string;
-  jobId: string;
-  highlights: string;
+  id: string;
   applicantsCount: number;
   jobPosterName?: string;
+  descriptionHtml: string;
+  seniorityLevel: string;
+  postedAt: string;
+  highlights?: string;
 }
 
 @Injectable({
@@ -72,7 +75,7 @@ export class JobsService {
     this.http.delete(`${apiUrl}/job-listings/${jobId}`).pipe(
       tap(() => {
         console.log("Job deleted successfully");
-        const updatedPosts = this.jobPosts().filter(job => job.jobId !== jobId);
+        const updatedPosts = this.jobPosts().filter(job => job.id !== jobId);
         this.jobPosts.set(updatedPosts); // Update the signal with the locally filtered list
       }),
       catchError((error) => {

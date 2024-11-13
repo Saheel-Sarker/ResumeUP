@@ -1,0 +1,51 @@
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    list-style-type: disc;
+}
+textarea {
+    width: 100%;
+    height: 400px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Prevent resizing */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #00ff885e;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+button:disabled {
+    background-color: #a9a9a9; /* Greyed out when disabled */
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #1269415e;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.spinner {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}

@@ -1,0 +1,46 @@
+.job-details {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .job-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .company-info,
+  .applicants,
+  .poster-name,
+  .seniority-level,
+  .posted-date {
+    color: #555;
+    margin-bottom: 4px;
+  }
+  
+  .job-description {
+    margin-top: 12px;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    color: #333;
+    font-size: 0.9em;
+  }
+  
+  .apply-link {
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  .apply-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .apply-link a:hover {
+    text-decoration: underline;
+  }

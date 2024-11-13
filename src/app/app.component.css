@@ -31,5 +31,5 @@
 
   .app-side-panel {
     flex: 3;
-    height: 100%; /* Ensures it fills the remaining height */
+    max-height: 90vh;
   }

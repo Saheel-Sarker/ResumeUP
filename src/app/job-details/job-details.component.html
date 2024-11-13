@@ -1,0 +1,16 @@
+<div>
+    <p class="job-title"><strong>{{ selectedJob()?.title }}</strong></p>
+    <p class="company-info">{{ selectedJob()?.companyName }} - {{ selectedJob()?.location }}</p>
+    <p class="applicants">
+        Applicants: {{ (selectedJob()?.applicantsCount ?? 0) >= 200 ? '200+' : selectedJob()?.applicantsCount }}
+    </p>
+    <p class="poster-name">Posted by: {{ selectedJob()?.jobPosterName }}</p>
+    <p class="seniority-level">{{ selectedJob()?.seniorityLevel }}</p>
+    <p class="posted-date">Posted on: {{ selectedJob()?.postedAt ?? 'N/A'}}</p>
+
+    <div class="job-description" [innerHTML]="selectedJob()?.descriptionHtml"></div>
+
+    <p class="apply-link">
+        <a [href]="selectedJob()?.link" target="_blank">Click Here to Apply</a>
+    </p>
+</div>

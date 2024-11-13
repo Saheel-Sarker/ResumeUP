@@ -1,10 +1,9 @@
-@for (job of filteredJobs(); track job.jobId) {
-  <div class="job-card" [class.selected]="job.jobId === selectedJob()?.jobId" (click)="selectJob(job)">
-    <button (click)="deleteJob(job.jobId); $event.stopPropagation()"></button>
+@for (job of filteredJobs(); track job.id) {
+  <div class="job-card" [class.selected]="job.id === selectedJob()?.id" (click)="selectJob(job)">
+    <button (click)="deleteJob(job.id); $event.stopPropagation()"></button>
     <p><strong>{{ job.title }}</strong></p>
-    <p>{{ job.company }} - {{ job.location }}</p>
+    <p>{{ job.companyName }} - {{ job.location }}</p>
     <p>Applicants: {{ job.applicantsCount >= 200 ? '200+' : job.applicantsCount }}</p>
-    <p><a [href]="job.link" target="_blank">Click to view description and apply</a></p>
   </div>
 }
 

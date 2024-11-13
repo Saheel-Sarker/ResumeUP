@@ -30,7 +30,7 @@ export class JobListComponent implements OnInit{
   }
 
   selectJob(job: JobPost) {
-    if (job.jobId === this.selectedJob()?.jobId){
+    if (job.id === this.selectedJob()?.id){
       this.selectedJob.set(null);
     } else {
       this.selectedJob.set(job);
