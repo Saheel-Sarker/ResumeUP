@@ -18,11 +18,26 @@ export class JobListComponent implements OnInit{
   
   constructor(){}
 
+  compareDates(a : string,b : string) {
+
+  }
+
   filteredJobs() {
     return this.jobPosts().filter(job =>
       job.title.toLowerCase().includes(this.searchTerm().toLowerCase()) &&
       job.applicantsCount <= this.maxApplicants()
-    );
+    ).sort((a,b) => {
+      const dateA = new Date(a.postedAt)
+      const dateB = new Date(b.postedAt)
+      if (dateA < dateB) {
+        return 1;
+      } else if ( dateA > dateB) {
+        return -1;
+      }
+      else {
+        return 0;
+      }
+    });
   }
 
   ngOnInit(): void {
