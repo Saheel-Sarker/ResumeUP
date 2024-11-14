@@ -36,9 +36,7 @@
   }
   
   .apply-link a {
-    color: #007bff;
     text-decoration: none;
-    font-weight: bold;
   }
   
   .apply-link a:hover {

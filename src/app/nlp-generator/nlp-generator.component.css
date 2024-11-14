@@ -49,3 +49,11 @@ ul {
     font-size: 14px;
     color: #555;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    margin-top: 1rem; /* Optional: add spacing above the button */
+  }
+  
+

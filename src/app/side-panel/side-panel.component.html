@@ -1,8 +1,16 @@
 <!-- <div class="side-panel" [class.selected]="selectedID() !== ''"> -->
 <div class="side-panel">
     @if (selectedJob() == null) {
+
         <app-nlp-generator></app-nlp-generator>
     } @else {
-        <app-job-details></app-job-details>
+        <div class="side-panel">
+        <div class="job-details">
+            <app-job-details></app-job-details>
+        </div>
+        <div class="nlp-generator">
+            <app-nlp-generator></app-nlp-generator>
+        </div>
+        </div>
     }
 </div>

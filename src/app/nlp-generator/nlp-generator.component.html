@@ -1,6 +1,12 @@
 <p style="border-bottom: 1px solid #ddd; padding-bottom: 13px; text-align: center;">Generate Highlights Here</p>
-<textarea [(ngModel)]="pastedDescription" placeholder="Paste job description here..."></textarea>
-<button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>
+
+@if (!selectedJob()) {
+    <textarea [(ngModel)]="pastedDescription" placeholder="Paste job description here..."></textarea>
+} 
+    
+<div class="button-container">
+    <button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>
+</div>
 @if (!isLoading()) {
     @if (highlightsForShow() !== '') {
         <p style="margin-top: 15px;">Generated Highlights:</p>

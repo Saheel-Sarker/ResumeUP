@@ -5,4 +5,16 @@
     border-radius: 0px;
   }
 
+  .job-details {
+    flex: 1; /* Takes up remaining space */
+    overflow-y: auto; /* Allows scrolling for job details */
+    margin-bottom: 1rem; /* Adds spacing above the NLP generator */
+  }
   
+  .nlp-generator {
+    position: sticky;
+    bottom: 0; /* Pins it to the bottom */
+    background-color: #f9f9f9; /* Optional background for visibility */
+    padding: 1rem;
+    border-top: 1px solid #ddd; /* Optional border for separation */
+  }
