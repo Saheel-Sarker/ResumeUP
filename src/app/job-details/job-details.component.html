@@ -1,5 +1,5 @@
 <div>
-    <p class="job-title"><strong>{{ selectedJob()?.title }}</strong></p>
+    <p class="job-title">{{ selectedJob()?.title }}</p>
     <p class="company-info">{{ selectedJob()?.companyName }} - {{ selectedJob()?.location }}</p>
     <p class="applicants">
         Applicants: {{ (selectedJob()?.applicantsCount ?? 0) >= 200 ? '200+' : selectedJob()?.applicantsCount }}

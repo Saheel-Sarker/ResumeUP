@@ -69,3 +69,7 @@
   background-color: #af4040;
   border-radius: 50%;
 }
+
+.job-title {
+  font-weight: 500;
+}

@@ -17,8 +17,8 @@ export class NlpGeneratorComponent {
   pastedDescription = '';
 
   generateHighlights() {
-    if (this.selectedJob()){
-      this.pastedDescription = this.selectedJob()?.descriptionHtml || " ";
+    if (this.selectedJob() !== null){
+      this.jobsService.generateHighlights(this.selectedJob()?.descriptionHtml || "");
     }
     this.jobsService.generateHighlights(this.pastedDescription.trim());
 
