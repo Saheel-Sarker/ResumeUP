@@ -1,4 +1,13 @@
 <div>
+<!-- Job State Toggle Box -->
+    <span style="float: right;" class="job-state-toggle" (click)="onToggleJobState()"
+        [ngClass]="{
+        'not-applied': selectedJob()?.jobStatus === 'not-applied' || selectedJob()?.jobStatus === undefined,
+        'favorite': selectedJob()?.jobStatus === 'favorite',
+        'applied': selectedJob()?.jobStatus === 'applied'
+        }">
+    </span>
+
     <p class="job-title">{{ selectedJob()?.title }}</p>
     <p class="company-info">{{ selectedJob()?.companyName }} - {{ selectedJob()?.location }}</p>
     <p class="applicants">
@@ -6,7 +15,8 @@
     </p>
     <p class="poster-name">Posted by: {{ selectedJob()?.jobPosterName }}</p>
     <p class="seniority-level">{{ selectedJob()?.seniorityLevel }}</p>
-    <span class="posted-date">Posted on: {{ selectedJob()?.postedAt ?? 'N/A'}}</span><span class="apply-link" style="float: right;"><a [href]="selectedJob()?.link" target="_blank">Click to Apply</a></span>
+    <span class="apply-linkb" style="float: right;"><a [href]="selectedJob()?.link" target="_blank">Click to Apply</a></span>
+    <p class="posted-date">Posted on: {{ selectedJob()?.postedAt ?? 'N/A'}}</p>
     <div class="job-description" [innerHTML]="selectedJob()?.descriptionHtml"></div>
 
     <p class="apply-link">

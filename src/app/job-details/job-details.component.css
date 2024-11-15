@@ -21,6 +21,8 @@
     color: #555;
     margin-bottom: 4px;
   }
+
+  
   
   .job-description {
     margin-top: 12px;
@@ -42,3 +44,49 @@
   .apply-link a:hover {
     text-decoration: underline;
   }
+
+  .apply-linkb {
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  
+  .apply-linkb a {
+    text-decoration: none;
+  }
+  
+  .apply-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* --------------------------- */
+
+/* Job state toggle box styling */
+.job-state-toggle {
+  width: 50px; /* Box width */
+  height: 50px; /* Box height */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for color change */
+  border: 2px solid transparent; /* Border will be transparent until hover */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Make it inline with other elements */
+}
+
+/* Color styles based on jobState */
+.not-applied {
+  background-color: #b0b0b0; /* Grey */
+}
+
+.favorite {
+  background-color: #FFD700; /* Yellow */
+}
+
+.applied {
+  background-color: #32CD32; /* Green */
+}
+
+/* Optional: Hover effect for better user feedback */
+.job-state-toggle:hover {
+  border-color: #000; /* Dark border on hover */
+}
+
+

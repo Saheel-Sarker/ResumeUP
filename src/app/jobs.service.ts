@@ -19,7 +19,7 @@ export interface JobPost {
   descriptionHtml: string;
   seniorityLevel: string;
   postedAt: string;
-  highlights?: string;
+  jobStatus?: string;
 }
 
 @Injectable({
@@ -70,12 +70,18 @@ export class JobsService {
     ).subscribe() ;
   }
 
-  updateJob(jobId: string): void {
+  updateJob(jobId: string, jobStatus: string): void {
     console.log(`updating job with ID: ${jobId}`);
-    const payload = { highlights : this.highlightsForShow()}; // Creating payload with highlights array
-    this.http.put(`${apiUrl}/job-listings/${jobId}`, payload).pipe(
+    this.http.put(`${apiUrl}/job-listings/${jobId}`, { jobStatus: jobStatus}).pipe(
       tap(() => {
-        console.log("Job updated successfully");
+        this.jobPosts.update(jobs => {
+          // Update the job in the list
+          const updatedJobs = jobs.map(job => 
+            job.id === jobId ? { ...job, jobStatus: jobStatus } : job
+          );
+          console.log("status added/updated locally for job ID:", jobId);
+          return updatedJobs;  // Return the updated array of jobs
+        });
       }),
       catchError((error) => {
         console.error("Error occurred while updating the job post:", error);

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { JobsService } from '../jobs.service';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-nlp-generator',
