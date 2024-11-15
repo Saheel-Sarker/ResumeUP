@@ -13,4 +13,7 @@ export class TopBarComponent {
   jobsService = inject(JobsService)
   searchTerm = this.jobsService.searchTerm
   maxApplicants = this.jobsService.maxApplicants
+  filterApplied = this.jobsService.filterApplied
+  filterNotApplied = this.jobsService.filterNotApplied
+  filterFavorite = this.jobsService.filterFavorite
 }

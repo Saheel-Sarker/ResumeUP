@@ -1,5 +1,5 @@
 @for (job of filteredJobs(); track job.id) {
-  <div class="job-card" [class.selected]="job.id === selectedJob()?.id" (click)="selectJob(job)">
+  <div class="job-card" [class.selected]="job.id === selectedJob()?.id" (click)="selectJob(job)" [class.yellow]="job.jobStatus === 'favorite' && job.id !== selectedJob()?.id" [class.green]="job.jobStatus === 'applied' && job.id !== selectedJob()?.id">
     <button (click)="deleteJob(job.id); $event.stopPropagation()"></button>
     <p class="job-title">{{ job.title }}</p>
     <p>{{ job.companyName }} - {{ job.location }}</p>

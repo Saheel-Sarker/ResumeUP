@@ -16,5 +16,30 @@
       class="applicant-slider"
     />
     <span class="applicant-count"> &lt; {{ maxApplicants() }} Applicants</span>
+
+    <label class="checkbox-label">
+      <input
+        type="checkbox"
+        [(ngModel)]="filterNotApplied"
+        class="status-checkbox not-applied"
+      />
+    </label>
+  
+    <label class="checkbox-label">
+      <input
+        type="checkbox"
+        [(ngModel)]="filterFavorite"
+        class="status-checkbox favorite"
+      />
+    </label>
+  
+    <label class="checkbox-label">
+      <input
+        type="checkbox"
+        [(ngModel)]="filterApplied"
+        class="status-checkbox applied"
+      />
+    </label>
+    
   </div>
   

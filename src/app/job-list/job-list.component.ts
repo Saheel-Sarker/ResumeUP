@@ -10,12 +10,15 @@ import { JobPost, JobsService } from '../jobs.service';
   styleUrl: './job-list.component.css'
 })
 export class JobListComponent implements OnInit{
-  private jobService = inject(JobsService)
-  jobPosts = this.jobService.jobPosts
-  selectedJob = this.jobService.selectedJob
-  searchTerm = this.jobService.searchTerm
-  maxApplicants = this.jobService.maxApplicants
-  
+  private jobsService = inject(JobsService);
+  jobPosts = this.jobsService.jobPosts;
+  selectedJob = this.jobsService.selectedJob;
+  searchTerm = this.jobsService.searchTerm;
+  maxApplicants = this.jobsService.maxApplicants;
+  filterApplied = this.jobsService.filterApplied;
+  filterNotApplied = this.jobsService.filterNotApplied;
+  filterFavorite = this.jobsService.filterFavorite;
+
   constructor(){}
 
   compareDates(a : string,b : string) {
@@ -23,21 +26,37 @@ export class JobListComponent implements OnInit{
   }
 
   filteredJobs() {
-    return this.jobPosts().filter(job =>
-      (job.title.toLowerCase().includes(this.searchTerm().toLowerCase()) || job.descriptionHtml.toLowerCase().includes(this.searchTerm().toLowerCase())) &&
+    // Start by filtering the job posts based on the search term and max applicants
+    let filteredJobs = this.jobPosts().filter(job =>
+      (job.title.toLowerCase().includes(this.searchTerm().toLowerCase()) ||
+        job.descriptionHtml.toLowerCase().includes(this.searchTerm().toLowerCase())) &&
       job.applicantsCount <= this.maxApplicants()
-    ).sort((a,b) => {
-      const dateA = new Date(a.postedAt)
-      const dateB = new Date(b.postedAt)
+    );
+  
+    // Apply job status filters (applied, not-applied, favorite)
+    if (this.filterApplied()) {
+      filteredJobs = filteredJobs.filter(job => job.jobStatus !== 'applied');
+    }  
+    if (this.filterNotApplied()) {
+      filteredJobs = filteredJobs.filter(job => job.jobStatus !== 'not-applied');
+    } 
+    if (this.filterFavorite()) {
+      filteredJobs = filteredJobs.filter(job => job.jobStatus !== 'favorite');
+    }
+  
+    // Sort the filtered jobs based on the posted date
+    filteredJobs = filteredJobs.sort((a, b) => {
+      const dateA = new Date(a.postedAt);
+      const dateB = new Date(b.postedAt);
       if (dateA < dateB) {
-        return 1;
-      } else if ( dateA > dateB) {
-        return -1;
+        return 1; // Newer posts should appear first
+      } else if (dateA > dateB) {
+        return -1; // Older posts should come after
       }
-      else {
-        return 0;
-      }
+      return 0; // If dates are equal, keep the original order
     });
+  
+    return filteredJobs;
   }
 
   ngOnInit(): void {
@@ -53,6 +72,6 @@ export class JobListComponent implements OnInit{
   }
 
   deleteJob(jobId: string) {
-    this.jobService.deleteJob(jobId)
+    this.jobsService.deleteJob(jobId)
   }
 }

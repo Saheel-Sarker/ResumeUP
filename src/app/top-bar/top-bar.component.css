@@ -23,3 +23,58 @@
 .applicant-slider {
   margin: 0 10px;
 }
+
+/* ----------------------------- */
+
+/* General styles for the checkboxes */
+.status-checkbox {
+  appearance: none; /* Remove default checkbox styles */
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 4px; /* Optional: make the checkbox slightly rounded */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Background colors for different statuses */
+.status-checkbox.not-applied {
+  background-color: #2f2f2f; /* Blackish-grey */
+}
+
+.status-checkbox.applied {
+  background-color: green; /* Green */
+}
+
+.status-checkbox.favorite {
+  background-color: yellow; /* Yellow */
+}
+
+/* Adding a black cross when the checkbox is checked */
+.status-checkbox:checked::before,
+.status-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: black; /* Always black cross */
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+/* Crossbar 1 (diagonal from top-left to bottom-right) */
+.status-checkbox:checked::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Crossbar 2 (diagonal from top-right to bottom-left) */
+.status-checkbox:checked::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+

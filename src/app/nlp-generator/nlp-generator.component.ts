@@ -11,16 +11,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class NlpGeneratorComponent {
   jobsService = inject(JobsService)
-  selectedJob = this.jobsService.selectedJob;
   highlightsForShow = this.jobsService.highlightsForShow;
   isLoading = this.jobsService.isLoading;
   pastedDescription = '';
 
   generateHighlights() {
-    if (this.selectedJob() !== null){
-      this.jobsService.generateHighlights(this.selectedJob()?.descriptionHtml || "");
+    if (this.pastedDescription.trim().length > 25){
+      this.jobsService.generateHighlights(this.pastedDescription.trim());
     }
-    this.jobsService.generateHighlights(this.pastedDescription.trim());
-
   }
 }

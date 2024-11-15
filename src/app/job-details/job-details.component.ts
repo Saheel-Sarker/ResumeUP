@@ -41,9 +41,6 @@ export class JobDetailsComponent {
         case 'not-applied':
           nextStatus = 'favorite';
           break;
-        case undefined:
-          nextStatus = 'favorite';
-          break;
         case 'favorite':
           nextStatus = 'applied';
           break;

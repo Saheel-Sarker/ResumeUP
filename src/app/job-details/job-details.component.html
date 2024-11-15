@@ -2,7 +2,7 @@
 <!-- Job State Toggle Box -->
     <span style="float: right;" class="job-state-toggle" (click)="onToggleJobState()"
         [ngClass]="{
-        'not-applied': selectedJob()?.jobStatus === 'not-applied' || selectedJob()?.jobStatus === undefined,
+        'not-applied': selectedJob()?.jobStatus === 'not-applied',
         'favorite': selectedJob()?.jobStatus === 'favorite',
         'applied': selectedJob()?.jobStatus === 'applied'
         }">

@@ -27,12 +27,16 @@ export interface JobPost {
 })
 export class JobsService {
   jobPosts = signal<JobPost[]>([]);
-  highlightsForShow = signal<String[]>([]);
+  highlightsForShow = signal<string[]>([]);
   http = inject(HttpClient);
   selectedJob = signal<JobPost|null>(null);
   searchTerm = signal<string>('');
   maxApplicants = signal<number>(200);
   isLoading = signal<boolean>(false);
+
+  filterApplied = signal<boolean>(false);
+  filterNotApplied = signal<boolean>(false);
+  filterFavorite = signal<boolean>(false);
   
   constructor() { 
     this.getAll();

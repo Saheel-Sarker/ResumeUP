@@ -73,3 +73,11 @@
 .job-title {
   font-weight: 500;
 }
+
+.job-card.green {
+  background-color: #32CD32;
+}
+
+.job-card.yellow {
+  background-color: #FFD700;
+}
