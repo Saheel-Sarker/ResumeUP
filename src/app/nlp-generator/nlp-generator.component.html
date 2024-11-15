@@ -8,12 +8,12 @@
     <button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>
 </div>
 @if (!isLoading()) {
-    @if (highlightsForShow() !== '') {
+    @if (highlightsForShow() !== []) {
         <p style="margin-top: 15px;">Generated Highlights:</p>
     }
     @for (highlight of highlightsForShow(); track $index) {
-        <li style="font-size: 14px;">{{highlight}}</li>
-    }
+            <li style="font-size: 14px;">{{highlight}}</li>
+        }
 } @else {
     <div class="spinner">Loading...</div>
 }

@@ -24,7 +24,7 @@ export class JobListComponent implements OnInit{
 
   filteredJobs() {
     return this.jobPosts().filter(job =>
-      job.title.toLowerCase().includes(this.searchTerm().toLowerCase()) &&
+      (job.title.toLowerCase().includes(this.searchTerm().toLowerCase()) || job.descriptionHtml.toLowerCase().includes(this.searchTerm().toLowerCase())) &&
       job.applicantsCount <= this.maxApplicants()
     ).sort((a,b) => {
       const dateA = new Date(a.postedAt)

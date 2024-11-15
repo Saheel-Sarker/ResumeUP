@@ -13,5 +13,4 @@ import { NlpGeneratorComponent } from "../nlp-generator/nlp-generator.component"
 export class SidePanelComponent {
     jobsService = inject(JobsService)
     selectedJob = this.jobsService.selectedJob;
-
 }

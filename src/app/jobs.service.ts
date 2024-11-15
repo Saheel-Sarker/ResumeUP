@@ -27,7 +27,7 @@ export interface JobPost {
 })
 export class JobsService {
   jobPosts = signal<JobPost[]>([]);
-  highlightsForShow = signal<String>('');
+  highlightsForShow = signal<String[]>([]);
   http = inject(HttpClient);
   selectedJob = signal<JobPost|null>(null);
   searchTerm = signal<string>('');
@@ -68,6 +68,20 @@ export class JobsService {
         return of(''); // Return an empty string in case of error
       })
     ).subscribe() ;
+  }
+
+  updateJob(jobId: string): void {
+    console.log(`updating job with ID: ${jobId}`);
+    const payload = { highlights : this.highlightsForShow()}; // Creating payload with highlights array
+    this.http.put(`${apiUrl}/job-listings/${jobId}`, payload).pipe(
+      tap(() => {
+        console.log("Job updated successfully");
+      }),
+      catchError((error) => {
+        console.error("Error occurred while updating the job post:", error);
+        return of(null); // Handle error appropriately
+      })
+    ).subscribe();
   }
 
   deleteJob(jobId: string): void {
