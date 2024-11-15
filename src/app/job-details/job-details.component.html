@@ -6,8 +6,7 @@
     </p>
     <p class="poster-name">Posted by: {{ selectedJob()?.jobPosterName }}</p>
     <p class="seniority-level">{{ selectedJob()?.seniorityLevel }}</p>
-    <p class="posted-date">Posted on: {{ selectedJob()?.postedAt ?? 'N/A'}}</p>
-
+    <span class="posted-date">Posted on: {{ selectedJob()?.postedAt ?? 'N/A'}}</span><span class="apply-link" style="float: right;"><a [href]="selectedJob()?.link" target="_blank">Click to Apply</a></span>
     <div class="job-description" [innerHTML]="selectedJob()?.descriptionHtml"></div>
 
     <p class="apply-link">
