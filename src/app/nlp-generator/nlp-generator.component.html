@@ -2,8 +2,7 @@
 <textarea [(ngModel)]="pastedDescription" placeholder="Paste job description here..."></textarea>
 <button (click)="generateHighlights()" [disabled]="isLoading()">Generate</button>
 @if (!isLoading()) {
-    {{highlightsForShow()}}
-    @if (highlightsForShow() !== []) {
+    @if (highlightsForShow().length > 0) {
         <p style="margin-top: 15px;">Generated Highlights:</p>
         @for (highlight of highlightsForShow(); track $index) {
             <li style="font-size: 14px;">{{highlight}}</li>

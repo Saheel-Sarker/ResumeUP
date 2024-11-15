@@ -19,7 +19,7 @@ export class JobDetailsComponent {
 
   jobStatus: string = 'not-applied';  // Default state of the job
   private toggleSubject = new Subject<void>();
-  private debounceDelay: number = 500;
+  private debounceDelay: number = 1000;
 
   get sanitizedDescription(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(this.selectedJob()?.descriptionHtml || '');
@@ -35,6 +35,7 @@ export class JobDetailsComponent {
 
   onToggleJobState(): void {
     const currentJob = this.selectedJob();
+
     if (currentJob) {
       let nextStatus: string;
       switch (currentJob.jobStatus) {
@@ -50,9 +51,9 @@ export class JobDetailsComponent {
         default:
           nextStatus = 'not-applied'; // Fallback to 'not-applied' if unknown
       }
-      
       // Update the job status to the next one
       currentJob.jobStatus = nextStatus;
+      this.jobStatus = nextStatus
       this.toggleSubject.next(); // Trigger the debounce update
     }
   }

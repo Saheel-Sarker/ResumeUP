@@ -76,16 +76,15 @@ export class JobsService {
 
   updateJob(jobId: string, jobStatus: string): void {
     console.log(`updating job with ID: ${jobId}`);
+    
     this.http.put(`${apiUrl}/job-listings/${jobId}`, { jobStatus: jobStatus}).pipe(
       tap(() => {
-        this.jobPosts.update(jobs => {
           // Update the job in the list
-          const updatedJobs = jobs.map(job => 
+          const updatedJobs = this.jobPosts().map(job => 
             job.id === jobId ? { ...job, jobStatus: jobStatus } : job
           );
           console.log("status added/updated locally for job ID:", jobId);
-          return updatedJobs;  // Return the updated array of jobs
-        });
+          this.jobPosts.set(updatedJobs);
       }),
       catchError((error) => {
         console.error("Error occurred while updating the job post:", error);
