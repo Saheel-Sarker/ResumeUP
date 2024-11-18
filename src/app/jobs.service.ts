@@ -95,11 +95,13 @@ export class JobsService {
 
   deleteJob(jobId: string): void {
     console.log(`Deleting job with ID: ${jobId}`);
+    const updatedPosts = this.jobPosts().filter(job => job.id !== jobId);
+    this.jobPosts.set(updatedPosts); // Update the signal with the locally filtered list
     this.http.delete(`${apiUrl}/job-listings/${jobId}`).pipe(
       tap(() => {
         console.log("Job deleted successfully");
-        const updatedPosts = this.jobPosts().filter(job => job.id !== jobId);
-        this.jobPosts.set(updatedPosts); // Update the signal with the locally filtered list
+        // const updatedPosts = this.jobPosts().filter(job => job.id !== jobId);
+        // this.jobPosts.set(updatedPosts); // Update the signal with the locally filtered list
       }),
       catchError((error) => {
         console.error("Error occurred while deleting the job post:", error);
