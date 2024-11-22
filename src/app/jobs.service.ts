@@ -47,7 +47,7 @@ export class JobsService {
     console.log("Fetching data from API...");
     this.http.get<JobPost[]>(`${apiUrl}/job-listings`).pipe(
       tap((data) => {
-        //this.jobPosts.set(data); // Update the signal with fetched data
+        this.jobPosts.set(data); // Update the signal with fetched data
       }),
       catchError((error) => {
         console.error("Error occurred while fetching data:", error); // Log the error
